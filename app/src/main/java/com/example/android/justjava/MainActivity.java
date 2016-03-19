@@ -15,11 +15,12 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
     }
 
+    private int quantity = 1;
     /**
      * Increase number of coffees to order by 1
      */
     public void increment(View view){
-        int quantity = 3;
+        this.quantity++;
         TextView quantityTextView = (TextView) findViewById(
                 R.id.quantity_text_view);
         quantityTextView.setText("" + quantity);
@@ -29,7 +30,7 @@ public class MainActivity extends ActionBarActivity {
      * Decrease number of coffees to order by 1
      */
     public void decrement(View view){
-        int quantity = 1;
+        this.quantity--;
         TextView quantityTextView = (TextView) findViewById(
                 R.id.quantity_text_view);
         quantityTextView.setText("" + quantity);
