@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         displayQuantity(this.quantity);
-        displayPrice(this.quantity*5);
+        displayPrice(this.calculatePrice());
     }
 
     /**
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.quantity_text_view);
         quantityTextView.setText("" + quantity);
     }
+
     /**
      * This method displays the given price on the screen.
      */
@@ -57,5 +58,12 @@ public class MainActivity extends AppCompatActivity {
         //priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
         priceTextView.setText("Total $" + number + "\nThank You.");
 
+    }
+
+    /**
+     * Calculates the price of the order.
+     */
+    private int calculatePrice() {
+        return this.quantity * 5;
     }
 }
