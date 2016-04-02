@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private String createOrderSummary(int price){
         String message = "";
-        message += "Name: Kaptain Kunal\n";
+        EditText et = (EditText)findViewById(R.id.name_field);
+        String name = et.getText().toString();
+        message += "Name: " + name + "\n";
         message += "Add whipped cream? " + this.hasWhippedCream + "\n";
         message += "Add chocolate? " + this.hasChocolate + "\n";
         message += "Quantity: " + this.quantity + "\n";
