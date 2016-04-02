@@ -51,7 +51,14 @@ public class MainActivity extends AppCompatActivity {
      * Calculates the price of the order.
      */
     private int calculatePrice() {
-        return this.quantity * 5;
+        int price  = this.quantity * 5;
+        if(this.hasChocolate){
+            price += 2;
+        }
+        if(this.hasWhippedCream){
+            price += 1;
+        }
+        return price;
     }
 
     public void setHasWhippedCream(View v){
