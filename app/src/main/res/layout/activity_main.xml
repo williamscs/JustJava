@@ -73,25 +73,11 @@
             android:text="+"
             android:onClick="increment"/>
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Order Summary"
-        android:textAllCaps="true"/>
-    <TextView
-        android:id="@+id/order_summary_text_view"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Order"
+        android:layout_marginTop="32dp"
+        android:text="Send Email"
         android:textAllCaps="true"
-        android:onClick="submitOrder"/>
+        android:onClick="sendOrderSummary"/>
 </LinearLayout>
