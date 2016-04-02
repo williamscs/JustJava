@@ -3,6 +3,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private int quantity = 1;
+    private boolean hasWhippedCream = false;
     /**
      * Increase number of coffees to order by 1
      */
@@ -50,12 +52,18 @@ public class MainActivity extends AppCompatActivity {
         return this.quantity * 5;
     }
 
+    public void setHasWhippedCream(View v){
+        CheckBox cb = (CheckBox) v;
+        this.hasWhippedCream = cb.isChecked();
+    }
+
     /**
      * Creates a custom summary message
      */
     private String createOrderSummary(int price){
         String message = "";
         message += "Name: Kaptain Kunal\n";
+        message += "Add whipped cream? " + this.hasWhippedCream + "\n";
         message += "Quantity: " + this.quantity + "\n";
         message += "Total: $" + price + "\n";
         message += "Thank you!";
