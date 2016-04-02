@@ -14,12 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textCapWords"
-        android:hint="Name"
+        android:hint="@string/name"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Toppings"
+        android:text="@string/toppings"
         android:textAllCaps="true"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,15 +31,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="24dp"
+            android:paddingRight="24dp"
             android:textSize="16sp"
-            android:text="@string/whipped_cream_topping"
+            android:text="@string/whipped_cream"
             android:onClick="setHasWhippedCream"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="24dp"
+            android:paddingRight="24dp"
             android:textSize="16sp"
-            android:text="@string/chocolate_topping"
+            android:text="@string/chocolate"
             android:onClick="setHasChocolate"/>
     </LinearLayout>
     <TextView
@@ -66,7 +68,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:text="1" />
+            android:text="@string/initial_quantity_value" />
         <Button
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -77,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Send Email"
+        android:text="@string/order"
         android:textAllCaps="true"
         android:onClick="sendOrderSummary"/>
 </LinearLayout>

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    private int quantity = 1;
+    private int quantity = 2;
     private boolean hasWhippedCream = false;
     private boolean hasChocolate = false;
     /**
@@ -31,9 +31,13 @@ public class MainActivity extends AppCompatActivity {
         } else {
             this.popUp("You cannot order more than 100 coffees.");
         }
+        this.displayQuantity();
+    }
+
+    private void displayQuantity(){
         TextView quantityTextView = (TextView) findViewById(
                 R.id.quantity_text_view);
-        quantityTextView.setText("" + quantity);
+        quantityTextView.setText(String.format("%d", this.quantity));
     }
 
     /**
@@ -45,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             this.popUp("You cannot order fewer than 1 coffee.");
         }
-        TextView quantityTextView = (TextView) findViewById(
-                R.id.quantity_text_view);
-        quantityTextView.setText("" + quantity);
+        displayQuantity();
     }
 
     private void popUp(String message){
@@ -87,18 +89,22 @@ public class MainActivity extends AppCompatActivity {
      */
     public void sendOrderSummary(View v){
         int price = this.calculatePrice();
+        String message = this.composeMessage(price);
+        String subject = getResources().getString(R.string.order_summary_email_subject) + getResources().getString(R.string.app_name);
+        this.composeEmail(subject, message);
+    }
+
+    private String composeMessage(int price){
         String message = "";
         EditText et = (EditText)findViewById(R.id.name_field);
         String name = et.getText().toString();
-        message += "Name: " + name + "\n";
-        message += "Add whipped cream? " + this.hasWhippedCream + "\n";
-        message += "Add chocolate? " + this.hasChocolate + "\n";
-        message += "Quantity: " + this.quantity + "\n";
-        message += "Total: $" + price + "\n";
-        message += "Thank you!";
-        //return message;
-        String subject = getResources().getString(R.string.app_name);
-        this.composeEmail(subject, message);
+        message += getResources().getString(R.string.order_summary_name) + name + "\n";
+        message += getResources().getString(R.string.order_summary_whipped_cream) + " " + this.hasWhippedCream + "\n";
+        message += getResources().getString(R.string.order_summary_chocolate) + " " + this.hasChocolate + "\n";
+        message += getResources().getString(R.string.order_summary_quantity) + this.quantity + "\n";
+        message += getResources().getString(R.string.order_summary_price) + ": $" + price + "\n";
+        message += getResources().getString(R.string.thank_you);
+        return message;
     }
 
     private void composeEmail(String subject, String message) {
