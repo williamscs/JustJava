@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int quantity = 1;
     private boolean hasWhippedCream = false;
+    private boolean hasChocolate = false;
     /**
      * Increase number of coffees to order by 1
      */
@@ -57,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
         this.hasWhippedCream = cb.isChecked();
     }
 
+    public void setHasChocolate(View v){
+        CheckBox cb = (CheckBox) v;
+        this.hasChocolate = cb.isChecked();
+    }
+
     /**
      * Creates a custom summary message
      */
@@ -64,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         String message = "";
         message += "Name: Kaptain Kunal\n";
         message += "Add whipped cream? " + this.hasWhippedCream + "\n";
+        message += "Add chocolate? " + this.hasChocolate + "\n";
         message += "Quantity: " + this.quantity + "\n";
         message += "Total: $" + price + "\n";
         message += "Thank you!";
